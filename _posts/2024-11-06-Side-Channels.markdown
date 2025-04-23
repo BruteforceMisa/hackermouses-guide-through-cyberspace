@@ -11,7 +11,7 @@ In the previous blog post, it was highlighted that a bit consumes more power whe
 
 This attack is based on the leakage of information, rather than a mistake in the program or algorithm. Therefore, it is possible to attack mathematically secure cryptograhic algorithms using side channels. 
 
-![image](../assets/images/sidechannel.png) 
+![image](https://bruteforcemisa.github.io/hackermouses-guide-through-cyberspace//assets/images/sidechannel.png) 
 
 <b>Keywords</b>
 <ul>
