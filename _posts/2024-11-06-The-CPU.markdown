@@ -2,7 +2,8 @@
 layout: post
 title:  "Hardware: The CPU"
 date:   2024-11-06 11:04:02 +0200
-categories: hardware 
+tags: hardware 
+categories: infographics
 ---
 
 The CPU is the computational unit of a computer. It executes a sequence of <i>instructions</i>, which is provided directly or indirectly by the programmer. Instructions are programmed into the CPU and selected at the time when they are needed. The implementation of the <i>instruction set</i> can be different for a different type of CPU. An example of an instruction would be “read the contents of location x in memory”.

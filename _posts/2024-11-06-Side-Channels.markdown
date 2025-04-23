@@ -2,7 +2,8 @@
 layout: post
 title:  "Hardware: Side Channels"
 date:   2024-11-06 11:08:02 +0200
-categories: hardware
+tags: hardware
+categories: infographics
 ---
 
 <i>Side channels</i> are channels on which information is leaked through the physical properties of the device. These side channels can occur in a more technical setting, but also in a general setting. Examples of general side channels are such as the sound of your keyboard when you are typing in your password, or even the muscles in your hand when you are typing in your pincode when paying. When zooming into the physical components of a device, side channels such as optical emissions, timing delays, electromagnetic emanation and power consumption are observed. For this post, we will zoom in on the power consumption. 

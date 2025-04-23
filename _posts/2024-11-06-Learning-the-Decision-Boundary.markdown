@@ -2,7 +2,8 @@
 layout: post
 title:  "AI: Learning the Decision Boundary"
 date:   2024-11-06 12:46:02 +0200
-categories: ai
+tags: ai
+categories: infographics
 ---
 
 Instead of using regular statistics to detect the decision boundary, we can try to learn the function iteratively. This is where <i>neural networks</i> come in handy. By using deep neural networks, we are repeating our statistical analysis iteratively depending on our data.

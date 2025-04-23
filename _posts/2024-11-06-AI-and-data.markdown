@@ -2,7 +2,8 @@
 layout: post
 title:  "An introduction to Artificial Intelligence & Data"
 date:   2024-11-06 12:43:02 +0200
-categories: ai  
+tags: ai  
+categories: infographics
 ---
 
 Artificial Intelligence, in short AI, is a very broad term with a lot of associations. It is often considered a “black box”, because we are not always how decisions are made by AI. For this blog, I’ll focus on AI from a data science & statistics perspective. 

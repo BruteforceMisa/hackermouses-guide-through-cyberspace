@@ -2,7 +2,8 @@
 layout: post
 title:  "AES: the Inner Workings"
 date:   2024-11-06 12:29:02 +0200
-categories: encryption  
+tags: encryption  
+categories: infographics
 ---
 
 In this post, we are going to zoom in on the inner workings of one AES block. AES operates in <i>rounds</i>, which are usually 10, 12 or 14 rounds (matching with AES-128, AES-192 and AES-256). The output of each round is xor’ed with a <i>subkey</i>, which is derived from the main key using the key scheduler. How the key scheduler exactly works, is out of the scope for this blog.

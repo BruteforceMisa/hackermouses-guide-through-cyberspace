@@ -2,7 +2,8 @@
 layout: post
 title:  "AES: the Substitution Box"
 date:   2024-11-06 12:31:02 +0200
-categories: encryption  
+tags: encryption  
+categories: infographics
 ---
 
 One particular part of the AES operation is interesting for a hardware attack. This is the SubBytes operation, where each byte will be substituted with another value using a <i>substitution box</i> (sbox for short). To show how a substitution box works, have a look at the (insecure) defined substitution box below. We want to encode the word "apple" by using this sbox, which results in an output of "bqqmf". The substitution box used AES has some interesting mathematical properties to make it secure and is non-linear.
