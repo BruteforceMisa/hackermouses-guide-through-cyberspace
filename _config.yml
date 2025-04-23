@@ -23,6 +23,7 @@ description: >- # this means to ignore newlines until "baseurl:"
    Concepts in the field of cyber security, cryptography and artificial intelligence explained inuitively.
 baseurl: "/hackermouses-guide-through-cyberspace" # the subpath of your site, e.g. /blog
 url: "https://bruteforcemisa.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+site-url: "https://bruteforcemisa.github.io/hackermouses-guide-through-cyberspace"
 github_username:  BruteforceMisa
 show_excerpts: true
 excerpt_separator: <!--more-->

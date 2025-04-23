@@ -9,7 +9,7 @@ Instead of using regular statistics to detect the decision boundary, we can try 
 
 For example, suppose we have a coffee which is medium bitter and has a lighter colour. When the function is learning, it might misclassify this coffee as tea. Based on this new datapoint, we have to correct the decision boundary. This process - called <i>gradient descent</i> - is repeated many times, until the most optimum decision boundary is found. This means that most datapoints are classified correctly.
 
-![image](../assets/images/Decisionboundary.png) 
+![image](/assets/images/Decisionboundary.png) 
 
 Finding a deep neural network with the best decision boundary is therefore an <i>optimisation problem</i>. This can be calculated mathematically (from high school mathematics, you might recall finding global and local minima/maxima using the derivatives). However, it can be the case that there exist multiple minima. Finding the global minimum is one of the challenges in learning such a function.
 
