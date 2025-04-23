@@ -10,6 +10,6 @@ I've studied at the Radboud University, where I've obtained my Bachelor's degree
 
 In my free time, I'd like to do sports, go for hikes, make music, solve puzzles and read books. 
 
-![image](/assets/images/Misa.jpeg)
+![image](./assets/images/Misa.jpeg)
 
 ** HackerMouse image drawn by my lovely sister **

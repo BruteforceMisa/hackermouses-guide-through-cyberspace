@@ -13,7 +13,7 @@ But how do we build such a network? A neural network consists of <i>nodes/neuron
 
 We have three input features, thus we choose three input neurons. Each input neuron is then used to model a feature. The hidden layer we can choose ourselves, depending on the chosen complexity of the model. As we want to classify whether our drink is coffee or tea, we have two output classes. Our output layer consists of two nodes. Our output neurons will model our output classes by using probabilities. Thus, the first output node would denote the probability that our drink is tea, and the second output node would denote the probability that our drink is coffee. Thus, the sum of our output neurons should be approximately 1.
 
-![image](./assets/images/DNNtraining.png) 
+![image](../assets/images/DNNtraining.png) 
 
 To train this network, we feed our first datapoint and label to our network. The network decides which of the features are more important to classify our drink, and which are less important. The <i>weights</i> between the nodes are updated accordingly. Based on the <i>loss</i> - i.e. how many datapoints are classified correctly - the network is adapted. Then, we put our second datapoint and label into the network. This sequence repeats until all datapoints are seen by the network.
 

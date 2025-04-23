@@ -7,15 +7,15 @@ categories: encryption
 
 One particular part of the AES operation is interesting for a hardware attack. This is the SubBytes operation, where each byte will be substituted with another value using a <i>substitution box</i> (sbox for short). To show how a substitution box works, have a look at the (insecure) defined substitution box below. We want to encode the word "apple" by using this sbox, which results in an output of "bqqmf". The substitution box used AES has some interesting mathematical properties to make it secure and is non-linear.
 
-![image](./assets/images/SimpleSbox.png) 
+![image](../assets/images/SimpleSbox.png) 
 
 As you can see, the substitution box is a byte-wise encoding mechanism. This makes the sbox an interesting point of attack, as we can attack each byte separately. This is called a <i>Divide-and-Conquer</i> attack. By using such an attack, you drastically lower the amount of possible solutions. For a full AES-128 key, the key would have 2^128 possibilities, while with a divide-and-conquer attack, you would have 2^8 * 16 possibilities, which is equal to 2^8 * 2^4 = 2^12.
 
-![image](./assets/images/DNC.png)
+![image](../assets/images/DNC.png)
 
 In the previous blog posts, we showed that the AddRoundKey function is applied before applying the sbox. Thus, the output of the sbox is dependent on the key. With the properties that we can attack each byte of the output of the sbox value separately, and that these bytes are dependent on the key, this value is interesting for a side channel attack.
 
-![image](./assets/images/POI.png)
+![image](../assets/images/POI.png)
 
 
 <b>Keywords</b>

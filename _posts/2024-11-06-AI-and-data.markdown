@@ -9,7 +9,7 @@ Artificial Intelligence, in short AI, is a very broad term with a lot of associa
 
 Let’s have a look at our dataset below on coffee & tea.
 
-![image](./assets/images/AI-data.png) 
+![image](../assets/images/AI-data.png) 
 
 Each row in our <i>dataset</i> is considered a <i>datapoint</i>. This is one instance of either coffee or tea. A datapoint can have multiple <i>features</i>. These are characteristics used to describe the datapoint. In our example, the features are the colour, amount of caffeine and the bitterness level. Based on these features, we can estimate if our drink is either coffee or tea, which is called the <i>label</i>. In the image above, a <i>decision boundary</i> is visualised based on our current dataset using two features.
 
