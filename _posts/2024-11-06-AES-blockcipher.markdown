@@ -16,7 +16,7 @@ The first block is exactly 16 bytes, but the second block is 7 bytes short. In A
 
 Each AES block has as input the plaintext and the key, and outputs a <i>ciphertext</i>. The key is derived from the password chosen by the user. A schematic of AES encryption is shown below.
 
-![image](/assets/images/AESBlockcipher.png) 
+![image](../assets/images/AESBlockcipher.png) 
 
 <b>Keywords</b> 
 <ul>
