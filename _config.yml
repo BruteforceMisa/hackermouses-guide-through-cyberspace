@@ -8,9 +8,7 @@
 github: [metadata]
 title: A Hackermouse's Guide Through Cyberspace
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Cyberblog with infographics on hardware security, side-channel analysis, artficial intelligence and cryptography.
 baseurl: "/hackermouses-guide-through-cyberspace" # the subpath of your site, e.g. /blog
 url: "https://bruteforcemisa.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
