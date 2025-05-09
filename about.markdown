@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: single
 title: About BruteforceMisa
 permalink: /about/
 ---
@@ -10,6 +10,6 @@ I've studied at the Radboud University, where I've obtained my Bachelor's degree
 
 In my free time, I'd like to do sports, go for hikes, make music, solve puzzles and read books. 
 
-![image](https://bruteforcemisa.github.io/hackermouses-guide-through-cyberspace/assets/images/Misa.jpeg)
+![image]({{ site.url }}{{ site.baseurl }}/assets/images/Misa.jpeg)
 
 ** HackerMouse image drawn by my lovely sister **

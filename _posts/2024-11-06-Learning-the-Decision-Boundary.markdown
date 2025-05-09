@@ -1,20 +1,20 @@
 ---
-layout: post
+layout: posts
 title:  "AI: Learning the Decision Boundary"
 date:   2024-11-06 12:46:02 +0200
-tags: ai
-categories: infographics
+tags: artificial-intelligence
+categories: Infographics
 ---
 
 Instead of using regular statistics to detect the decision boundary, we can try to learn the function iteratively. This is where <i>neural networks</i> come in handy. By using deep neural networks, we are repeating our statistical analysis iteratively depending on our data.
 
 For example, suppose we have a coffee which is medium bitter and has a lighter colour. When the function is learning, it might misclassify this coffee as tea. Based on this new datapoint, we have to correct the decision boundary. This process - called <i>gradient descent</i> - is repeated many times, until the most optimum decision boundary is found. This means that most datapoints are classified correctly.
 
-![image](https://bruteforcemisa.github.io/hackermouses-guide-through-cyberspace/assets/images/Decisionboundary.png) 
+![image]({{ site.url }}{{ site.baseurl }}/assets/images/Decisionboundary.png) 
 
 Finding a deep neural network with the best decision boundary is therefore an <i>optimisation problem</i>. This can be calculated mathematically (from high school mathematics, you might recall finding global and local minima/maxima using the derivatives). However, it can be the case that there exist multiple minima. Finding the global minimum is one of the challenges in learning such a function.
 
-![image](https://bruteforcemisa.github.io/hackermouses-guide-through-cyberspace/assets/images/Optimum.png) 
+![image]({{ site.url }}{{ site.baseurl }}/assets/images/Optimum.png) 
 
 
 <b>Keywords</b>

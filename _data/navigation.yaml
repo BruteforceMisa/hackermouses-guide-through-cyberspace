@@ -1,0 +1,11 @@
+# main links
+main:
+  - title: "Post Collection"
+    url: /collection/
+  - title: "About BruteforceMisa"
+    url: /about/
+
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/

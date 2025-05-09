@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: posts
 title:  "Hardware: The CPU"
 date:   2024-11-06 11:04:02 +0200
 tags: hardware 
-categories: infographics
+categories: Infographics
 ---
 
 The CPU is the computational unit of a computer. It executes a sequence of <i>instructions</i>, which is provided directly or indirectly by the programmer. Instructions are programmed into the CPU and selected at the time when they are needed. The implementation of the <i>instruction set</i> can be different for a different type of CPU. An example of an instruction would be “read the contents of location x in memory”.
@@ -12,7 +12,7 @@ This instruction needs to be encoded in such a way that the CPU understands the 
 
 For our example, let us assume that the operation “READ” is encoded as “00110010”, followed by the location. The current through the device is manipulated by the circuit, as the chip designer has implemented. For a certain point in time, the CPU get either a low current (bit==0) or a high current (bit==1). This process is regulated by the <i>clock</i>. The decoder component within the CPU would select the correct instruction and execute it. In the image below, a visualisation is given on how instructions are encoded in a computer.
 
-![image](https://bruteforcemisa.github.io/hackermouses-guide-through-cyberspace/assets/images/CPU.png) 
+![image]({{ site.url }}{{ site.baseurl }}/assets/images/CPU.png) 
 
 <b>Keywords</b>
 <ul>

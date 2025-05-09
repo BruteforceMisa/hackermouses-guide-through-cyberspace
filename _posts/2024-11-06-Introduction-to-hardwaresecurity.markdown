@@ -1,14 +1,14 @@
 ---
-layout: post
+layout: posts
 title:  "Introduction to Hardware Security"
 date:   2024-11-06 10:20:02 +0200
 tags: hardware
-categories: infographics
+categories: Infographics
 ---
 
 The field of <i>hardware security</i> refers to protecting the physical components of a computer. It assumes direct access to the hardware and this field includes anything ranging from managing <i>access control</i> to <i>hardware design</i>. Physical security on your hardware is important, as the hardware can be manipulated by an adversarial. This ranges from plugging a malicious USB into a device to reading information from a monitor screen. It can also be performed more technically by observing power consumption or manipulating input current to inject a fault into the hardware.
 
-![image](https://bruteforcemisa.github.io/hackermouses-guide-through-cyberspace/assets/images/physical.png) 
+![image]({{ site.url }}{{ site.baseurl }}/assets/images/physical.png) 
 
 <b>Keywords</b>
 <ul>

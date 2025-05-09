@@ -4,35 +4,60 @@
 # which you are expected to set up once and rarely edit after that. If you find
 # yourself editing this file very often, consider using Jekyll's data files
 # feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 
-title: A HackerMouse's Guide through Cyberspace
+github: [metadata]
+title: A Hackermouse's Guide Through Cyberspace
 description: >- # this means to ignore newlines until "baseurl:"
-   Concepts in the field of cyber security, cryptography and artificial intelligence explained inuitively.
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
 baseurl: "/hackermouses-guide-through-cyberspace" # the subpath of your site, e.g. /blog
 url: "https://bruteforcemisa.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-site-url: "https://bruteforcemisa.github.io/hackermouses-guide-through-cyberspace"
-github_username:  BruteforceMisa
-show_excerpts: true
-excerpt_separator: <!--more-->
 
+github_username:  BruteforceMisa
 
 # Build settings
-theme: minima
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: "hackermouse"
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-remote-theme
+
+
+# # Site Author
+# author:
+#   name             : "Your Name"
+#   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+#   bio              : "I am an **amazing** person."
+#   location         : "Somewhere"
+#   email            :
+#   links:
+#     - label: "GitHub"
+#       icon: "fab fa-fw fa-github"
+#       # url: "https://github.com/"
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid 
+  path: /tags/
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: false
+      read_time: true
+      share: false
+      related: false
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.

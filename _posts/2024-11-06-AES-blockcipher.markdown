@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: posts
 title:  "Introduction to AES: a Block Cipher"
 date:   2024-11-06 12:27:02 +0200
 tags: encryption
-categories: infographics
+categories: Infographics
 ---
 
 AES (Advanced Encryption Standard) is the NIST-standard for encrypting data and is widely used. AES is a <i>block cipher</i>, which means that the data is encrypted per block. For example, AES-128 denotes that each <i>plaintext</i> is split into blocks of 128 bits and uses a 128-bit <i>key</i> for <i>encryption</i>.
@@ -17,7 +17,7 @@ The first block is exactly 16 bytes, but the second block is 7 bytes short. In A
 
 Each AES block has as input the plaintext and the key, and outputs a <i>ciphertext</i>. The key is derived from the password chosen by the user. A schematic of AES encryption is shown below.
 
-![image](https://bruteforcemisa.github.io/hackermouses-guide-through-cyberspace/assets/images/AESBlockcipher.png) 
+![image]({{ site.url }}{{ site.baseurl }}/assets/images/AESBlockcipher.png) 
 
 <b>Keywords</b> 
 <ul>

@@ -1,0 +1,16 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+{% if page.previous %} 
+          <span class="previous-link">
+            <a rel="prev" href="{{ site.baseurl }}{{ page.previous.url }}">Previous Post</a>
+          </span>
+        {% endif %}
+{% if page.next %} 
+    <span class="next-link">
+    <a rel="next" href="{{ site.baseurl }}{{ page.next.url }}">Next Post</a>
+    </span>
+{% endif %}
