@@ -12,7 +12,7 @@ $border-color: mix(#000, $background-color, 20%) !default;
 $code-background-color: mix(#b8f5c9, $background-color, 20%) !default;
 $code-background-color-dark: mix(#000, $background-color, 10%) !default;
 $form-background-color: mix(#fff, $background-color, 15%) !default;
-$footer-background-color: #a78d6e !default;
+$footer-background-color: #bea07c !default;
 $link-color: mix(#000, $primary-color, 10%) !default;
 $link-color-hover: #baa200  !default; /*mix(#fff, $link-color, 50%)*/
 $link-color-visited: mix(#0c8f00, $link-color, 25%) !default;
@@ -40,6 +40,10 @@ $base0c: #8abeb7 !default;
 $base0d: #81a2be !default;
 $base0e: #b294bb !default;
 $base0f: #a3685a !default;
+
+.page__footer{
+  border-top: 2px solid #006e00;
+}
 
 .author__urls.social-icons i,
 .author__urls.social-icons .svg-inline--fa,
