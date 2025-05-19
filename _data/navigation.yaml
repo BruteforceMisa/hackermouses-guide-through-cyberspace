@@ -5,7 +5,17 @@ main:
   - title: "About BruteforceMisa"
     url: /about/
 
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+contents:
+  - title: "Categories"
+    image: http://placehold.it/350x250
+    text: "Blog posts sorted by category"
+    children:
+    - title: Infographics
+    - title: Projects
+  - title: "Tags"
+    text: "Blog posts sorted by tag."
+    children:
+    - title: hardware
+    - title: encryption
+    - title: artificial-intelligence
+

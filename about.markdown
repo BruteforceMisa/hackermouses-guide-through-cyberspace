@@ -2,6 +2,7 @@
 layout: single
 title: About BruteforceMisa
 permalink: /about/
+author_profile: true
 ---
 
 Welcome to my website! I'm an enthousiastic Artificial Intelligence & Cyber Security student. On this website, I try to explain concepts within this field in a comprehensive and intuitive way using daily examples. I also like to add my personal tech projects.

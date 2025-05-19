@@ -4,6 +4,8 @@ title:  "Introduction to AES: a Block Cipher"
 date:   2024-11-06 12:27:02 +0200
 tags: encryption
 categories: Infographics
+pagination:
+  enabled: true
 ---
 
 AES (Advanced Encryption Standard) is the NIST-standard for encrypting data and is widely used. AES is a <i>block cipher</i>, which means that the data is encrypted per block. For example, AES-128 denotes that each <i>plaintext</i> is split into blocks of 128 bits and uses a 128-bit <i>key</i> for <i>encryption</i>.

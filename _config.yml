@@ -23,17 +23,17 @@ plugins:
   - jekyll-remote-theme
 
 
-# # Site Author
-# author:
-#   name             : "Your Name"
-#   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-#   bio              : "I am an **amazing** person."
-#   location         : "Somewhere"
-#   email            :
-#   links:
-#     - label: "GitHub"
-#       icon: "fab fa-fw fa-github"
-#       # url: "https://github.com/"
+# Site Author
+author:
+  name             : "Your Name"
+  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "I am an **amazing** person."
+  location         : "Somewhere"
+  email            :
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      # url: "https://github.com/"
 
 category_archive:
   type: liquid
@@ -41,6 +41,12 @@ category_archive:
 tag_archive:
   type: liquid 
   path: /tags/
+
+# Paginate
+permalink: /:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
+
 
 # Defaults
 defaults:
