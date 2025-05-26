@@ -11,6 +11,6 @@ I've studied at the Radboud University, where I've obtained my Bachelor's degree
 
 In my free time, I'd like to do sports, go for hikes, make music, solve puzzles and read books. 
 
-![image]({{ site.url }}{{ site.baseurl }}/assets/images/Misa.jpeg)
+<!-- ![image]({{ site.url }}{{ site.baseurl }}/assets/images/Misa.jpeg)
 
-** HackerMouse image drawn by my lovely sister **
+** HackerMouse image drawn by my lovely sister ** -->

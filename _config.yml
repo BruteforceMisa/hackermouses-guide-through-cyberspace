@@ -25,15 +25,15 @@ plugins:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  name             : "BruteforceMisa"
+  avatar           : "/assets/images/Misa.jpeg"
+  bio              : "Hackermouse with Cheesebook"
+  location         : "Cyberspace"
   email            :
   links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+    - label: "Drawing credits: @doodledoobug"
+      icon: "fa-solid fa-pencil"
+      url: "https://doodledoobug.carrd.co"
 
 category_archive:
   type: liquid

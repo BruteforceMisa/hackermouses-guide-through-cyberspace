@@ -1,21 +1,22 @@
 # main links
 main:
-  - title: "Post Collection"
-    url: /collection/
+  # - title: "Post Collection"
+  #   url: /categories/
   - title: "About BruteforceMisa"
     url: /about/
 
 contents:
-  - title: "Categories"
-    image: http://placehold.it/350x250
-    text: "Blog posts sorted by category"
+  - title: "Find posts by:"
     children:
-    - title: Infographics
-    - title: Projects
-  - title: "Tags"
-    text: "Blog posts sorted by tag."
-    children:
-    - title: hardware
-    - title: encryption
-    - title: artificial-intelligence
+    - title: Categories
+      url: /categories/
+    - title: Tags
+      url: /tags/
+  # - title: "Tags"
+  #   url: /tags/
+  #   children:
+  #   - title: artificial-intelligence
+  #   - title: electronics
+  #   - title: encryption
+  #   - title: hardware
 
