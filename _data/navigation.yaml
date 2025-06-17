@@ -12,11 +12,4 @@ contents:
       url: /categories/
     - title: Tags
       url: /tags/
-  # - title: "Tags"
-  #   url: /tags/
-  #   children:
-  #   - title: artificial-intelligence
-  #   - title: electronics
-  #   - title: encryption
-  #   - title: hardware
 

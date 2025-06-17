@@ -1,4 +1,270 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/" rel="alternate" type="text/html" /><updated>2025-05-26T11:37:49+02:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/feed.xml</id><title type="html">A Hackermouse’s Guide Through Cyberspace</title><subtitle>Cyberblog with infographics on hardware security, side-channel analysis, artficial intelligence and cryptography.</subtitle><author><name>BruteforceMisa</name></author><entry><title type="html">AI: Deep Learning</title><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/infographics/Deep-Learning/" rel="alternate" type="text/html" title="AI: Deep Learning" /><published>2024-11-06T11:47:02+01:00</published><updated>2024-11-06T11:47:02+01:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/infographics/Deep-Learning</id><content type="html" xml:base="http://localhost:4000/hackermouses-guide-through-cyberspace/infographics/Deep-Learning/"><![CDATA[<p>By now, you probably have the feeling why the terminology of neural networks and deep learning is used interchangeably. In fact, the neural network is “learning” the decision boundary based on how many datapoints are classified correctly and how many are classified incorrectly. This is done in two steps: the <i>forward pass</i> and the <i>backpropagation step</i>. In the forward pass, the neural network classifies all datapoints given its features. In the backpropagation step, we check how many datapoints are classified correctly. At one point in time, it is not possible to classify more datapoints correctly than we already have: this is our optimum.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/" rel="alternate" type="text/html" /><updated>2025-06-17T15:21:25+02:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/feed.xml</id><title type="html">A Hackermouse’s Guide Through Cyberspace</title><subtitle>Cyberblog with infographics and projects on hardware security, side-channel analysis, artficial intelligence and cryptography.</subtitle><author><name>BruteforceMisa</name></author><entry><title type="html">Sinterklaas surprise: Arduino Memory game</title><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Arduino-Gift/" rel="alternate" type="text/html" title="Sinterklaas surprise: Arduino Memory game" /><published>2025-06-16T22:00:00+02:00</published><updated>2025-06-16T22:00:00+02:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Arduino-Gift</id><content type="html" xml:base="http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Arduino-Gift/"><![CDATA[<p>This post is coming around half a year late, but I still want to tell you about a small Arduino project. It is a yearly tradition around Sinterklaas to buy a small gift and wrap it with what we call a “surprise” - which is basically very fancy wrapping paper. All participants put their names on a paper in a big box and draw a new paper. The person you draw (hopefully not yourself) is the person you have to get a gift and a surprise for. Usually, this surprise wrapping is tailored to this particular person.</p>
+
+<p>For Sinterklaas 2024, I had to get presents for my dad. He also likes electronics very much, so I thought it would be cool to create an electronic surprise. I designed a memory game using Arduino, where you have to remember sequences.</p>
+
+<p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/poc.jpeg" alt="image" />
+<i>Proof of concept of the memory game</i></p>
+
+<p>For this game, I used a blue and a white led light to indicate the sequence, followed by a red or green light to give feedback to the user if their submitted sequence is correct. The yellow light is used at the end to signal morse code. Two buttons are used to get the user input. I’ve drawn a simple schematic on the connections between the different components. Note that resistors are needed for the LED bulbs.</p>
+
+<p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/circuit.png" alt="image" /></p>
+
+<p>The sequence is a randomly generated bitstream of x bits, and the game starts by just remembering the first bit. Once the user submitted a correct sequence, the next bit is added, and so on. When an error is made, the user has to start over again from the first bit. Once the user has correctly remembered the whole bitstream, a rainbow of ledlights is shown and afterwards the yellow light starts signaling morse code, which matches with the lock on the package. The source code used for this surprise is added here:</p>
+
+<details>
+<summary>Click to show/hide code</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">const</span> <span class="nb">int</span> <span class="n">blue_ledpin</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">white_ledpin</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">yellow_ledpin</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">green_ledpin</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">red_ledpin</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="n">const</span> <span class="nb">int</span> <span class="n">blue_buttonpin</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">white_buttonpin</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">random</span> <span class="n">seed</span> <span class="k">for</span> <span class="n">sequence</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">124</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">sequence_length</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">sequence</span><span class="p">[</span><span class="n">sequence_length</span><span class="p">];</span>
+
+<span class="n">const</span> <span class="nb">int</span> <span class="n">morse1</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">};</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">morse2</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">morse3</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">};</span> 
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="o">//</span> <span class="n">put</span> <span class="n">your</span> <span class="n">setup</span> <span class="n">code</span> <span class="n">here</span><span class="p">,</span> <span class="n">to</span> <span class="n">run</span> <span class="n">once</span><span class="p">:</span>
+  <span class="o">//</span> <span class="n">Initialise</span> <span class="n">leds</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">blue_ledpin</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">blue_buttonpin</span><span class="p">,</span><span class="n">INPUT_PULLUP</span><span class="p">);</span>
+
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">white_ledpin</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">white_buttonpin</span><span class="p">,</span><span class="n">INPUT_PULLUP</span><span class="p">);</span>
+
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">red_ledpin</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">green_ledpin</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">yellow_ledpin</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span>
+
+
+  <span class="o">//</span> <span class="n">Create</span> <span class="n">sequence</span>
+
+  <span class="n">randomSeed</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sequence_length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+  <span class="p">}</span>
+
+
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">play_game</span><span class="p">(){</span>
+  <span class="nb">bool</span> <span class="n">finished</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    
+    <span class="k">while</span><span class="p">(</span><span class="n">count</span> <span class="o">&lt;=</span> <span class="n">sequence_length</span><span class="p">)</span>
+    <span class="p">{</span>
+
+      <span class="nb">bool</span> <span class="n">seq_succesful</span> <span class="o">=</span> <span class="n">play_sequence</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+
+      <span class="k">if</span><span class="p">(</span><span class="n">seq_succesful</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">green_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">green_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">else</span>
+      <span class="p">{</span>
+        <span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">red_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">red_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="o">//</span> <span class="n">Serial</span><span class="p">.</span><span class="k">print</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+      <span class="o">//</span> <span class="k">if</span><span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">sequence_length</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+      <span class="o">//</span> <span class="p">{</span>
+      <span class="o">//</span>   <span class="n">Serial</span><span class="p">.</span><span class="k">print</span><span class="p">(</span><span class="s">"Finished"</span><span class="p">);</span>
+      <span class="o">//</span>   <span class="n">finished</span><span class="o">=</span><span class="n">true</span><span class="p">;</span>
+      <span class="o">//</span> <span class="p">}</span>
+      
+    <span class="p">}</span>
+    
+
+  <span class="n">get_flag</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nb">bool</span> <span class="n">play_sequence</span><span class="p">(</span><span class="nb">int</span> <span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="o">//</span> <span class="n">Shine</span> <span class="n">leds</span>
+  <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">blue_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">blue_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">white_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">white_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="o">//</span> <span class="n">Check</span> <span class="n">userinput</span>
+  <span class="nb">int</span> <span class="n">button_presses</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nb">int</span> <span class="n">user_sequence</span><span class="p">[</span><span class="n">length</span><span class="p">];</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="n">button_presses</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">blue_buttonpin</span><span class="p">)</span> <span class="o">==</span> <span class="n">LOW</span><span class="p">)</span>  
+      <span class="p">{</span>
+        <span class="n">user_sequence</span><span class="p">[</span><span class="n">button_presses</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+        <span class="n">button_presses</span><span class="o">++</span><span class="p">;</span>                
+        <span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>                       
+      <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">white_buttonpin</span><span class="p">)</span> <span class="o">==</span> <span class="n">LOW</span><span class="p">)</span>  
+      <span class="p">{</span>
+        <span class="n">user_sequence</span><span class="p">[</span><span class="n">button_presses</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>         
+        <span class="n">button_presses</span><span class="o">++</span><span class="p">;</span>        
+        <span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>                       
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+
+  <span class="nb">bool</span> <span class="n">succesful</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">user_sequence</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="p">{</span>
+        <span class="n">succesful</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">succesful</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="n">void</span> <span class="n">get_flag</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">happy_leds</span><span class="p">();</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">true</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">start_sequence_flag</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+    <span class="n">flash_led</span><span class="p">(</span><span class="n">morse1</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+    <span class="n">flash_led</span><span class="p">(</span><span class="n">morse2</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+    <span class="n">flash_led</span><span class="p">(</span><span class="n">morse3</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">happy_leds</span><span class="p">()</span>
+<span class="p">{</span>
+
+  <span class="nb">int</span> <span class="n">blink_count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">blink_count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">green_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">green_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nb">int</span> <span class="n">wave_count</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">wave_count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">blue_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">blue_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">red_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">red_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">green_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">green_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">white_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">white_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">flash_led</span><span class="p">(</span><span class="nb">int</span> <span class="n">morse</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">morse</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">yellow_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">yellow_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">morse</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">yellow_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">yellow_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">start_sequence_flag</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">green_ledpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">green_ledpin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">blue_buttonpin</span><span class="p">)</span> <span class="o">==</span> <span class="n">LOW</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="n">play_game</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+</details>
+
+<p>Finally, I had to attach the Arduino to the surprise itself and hide the gifts in there. I decided to stick the Arduino to the “ceiling” of the box, to make cable management a bit easier.</p>
+
+<p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/insides.jpeg" alt="image" /></p>
+
+<p>However, if the battery was connected, then the lid of the box could not open. Sticking the battery to the top part as well would become to heavy. So I had to make a seperate connection.</p>
+
+<p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/powersupply.jpeg" alt="image" /></p>
+
+<p>And tadaa, the final result from above! Now I only have to add the morse code and the lock.</p>
+
+<p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/setupattached.jpeg" alt="image" /></p>
+
+<p>Dad was very surprised and entertained by his surprise, and even the whole family helped remembering the sequence to reach the code for the lock!</p>
+
+<p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/surprise.jpeg" alt="image" />
+<i>A picture of the final suprise</i></p>]]></content><author><name>BruteforceMisa</name></author><category term="Projects" /><category term="hardware" /><summary type="html"><![CDATA[This post is coming around half a year late, but I still want to tell you about a small Arduino project. It is a yearly tradition around Sinterklaas to buy a small gift and wrap it with what we call a “surprise” - which is basically very fancy wrapping paper. All participants put their names on a paper in a big box and draw a new paper. The person you draw (hopefully not yourself) is the person you have to get a gift and a surprise for. Usually, this surprise wrapping is tailored to this particular person.]]></summary></entry><entry><title type="html">AI: Deep Learning</title><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/infographics/Deep-Learning/" rel="alternate" type="text/html" title="AI: Deep Learning" /><published>2024-11-06T11:47:02+01:00</published><updated>2024-11-06T11:47:02+01:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/infographics/Deep-Learning</id><content type="html" xml:base="http://localhost:4000/hackermouses-guide-through-cyberspace/infographics/Deep-Learning/"><![CDATA[<p>By now, you probably have the feeling why the terminology of neural networks and deep learning is used interchangeably. In fact, the neural network is “learning” the decision boundary based on how many datapoints are classified correctly and how many are classified incorrectly. This is done in two steps: the <i>forward pass</i> and the <i>backpropagation step</i>. In the forward pass, the neural network classifies all datapoints given its features. In the backpropagation step, we check how many datapoints are classified correctly. At one point in time, it is not possible to classify more datapoints correctly than we already have: this is our optimum.</p>
 
 <p>But how do we build such a network? A neural network consists of <i>nodes/neurons</i> which are organised in layers. A neural network consists of one input layer, several hidden layers and one output layer. The amount of nodes chosen for the network depends on your dataset. For our coffee &amp; tea dataset, we would define our network as follows:</p>
 
