@@ -1,7 +1,7 @@
 ---
 layout: posts
 title:  "Sinterklaas surprise: Arduino Memory game"
-date:   2025-06-16 22:00:00 +0200
+date:   2025-06-16 15:00:00 +0200
 tags: hardware 
 categories: Projects
 ---
@@ -16,7 +16,6 @@ For Sinterklaas 2024, I had to get presents for my dad. He also likes electronic
 For this game, I used a blue and a white led light to indicate the sequence, followed by a red or green light to give feedback to the user if their submitted sequence is correct. The yellow light is used at the end to signal morse code. Two buttons are used to get the user input. I've drawn a simple schematic on the connections between the different components. Note that resistors are needed for the LED bulbs.
 
 ![image]({{ site.url }}{{ site.baseurl }}/assets/images/circuit.png)
-
 
 The sequence is a randomly generated bitstream of x bits, and the game starts by just remembering the first bit. Once the user submitted a correct sequence, the next bit is added, and so on. When an error is made, the user has to start over again from the first bit. Once the user has correctly remembered the whole bitstream, a rainbow of ledlights is shown and afterwards the yellow light starts signaling morse code, which matches with the lock on the package. The source code used for this surprise is added here:
 
