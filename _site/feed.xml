@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/" rel="alternate" type="text/html" /><updated>2025-06-30T17:13:40+02:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/feed.xml</id><title type="html">A Hackermouse’s Guide Through Cyberspace</title><subtitle>Cyberblog with infographics and projects on hardware security, side-channel analysis, artficial intelligence and cryptography.</subtitle><author><name>BruteforceMisa</name></author><entry><title type="html">Sinterklaas surprise: Arduino Memory game</title><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Arduino-Gift/" rel="alternate" type="text/html" title="Sinterklaas surprise: Arduino Memory game" /><published>2025-06-16T15:00:00+02:00</published><updated>2025-06-16T15:00:00+02:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Arduino-Gift</id><content type="html" xml:base="http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Arduino-Gift/"><![CDATA[<p>This post is coming around half a year late, but I still want to tell you about a small Arduino project. It is a yearly tradition around Sinterklaas to buy a small gift and wrap it with what we call a “surprise” - which is basically very fancy wrapping paper. All participants put their names on a paper in a big box and draw a new paper. The person you draw (hopefully not yourself) is the person you have to get a gift and a surprise for. Usually, this surprise wrapping is tailored to this particular person.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/" rel="alternate" type="text/html" /><updated>2025-07-24T11:02:17+02:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/feed.xml</id><title type="html">A Hackermouse’s Guide Through Cyberspace</title><subtitle>Cyberblog with infographics and projects on hardware security, side-channel analysis, artficial intelligence and cryptography.</subtitle><author><name>BruteforceMisa</name></author><entry><title type="html">Bug colony alert!</title><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Bug-Colony/" rel="alternate" type="text/html" title="Bug colony alert!" /><published>2025-07-24T00:00:00+02:00</published><updated>2025-07-24T00:00:00+02:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Bug-Colony</id><content type="html" xml:base="http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Bug-Colony/"><![CDATA[<p>We all complain about bugs in our code, but have you ever seen them in real life? For this project, the digital bug becomes analog! After my internship and master thesis, I wanted to give a small thank-you present to my office mates and supervisors.</p>
+
+<p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/colony-alert.jpeg" alt="image" /></p>
+
+<p>This present was actually a mini-CTF. I crocheted little bugs using <a href="https://www.etsy.com/listing/1014810705/scarab-beetle-amigurumi-crochet-pattern?ls=r&amp;ref=related-3&amp;content_source=4a450a3ca2942274ec83c1716e7293d3%253A7cc3147007296ca04b648f358148d5ea85fd2ab2&amp;logging_key=4a450a3ca2942274ec83c1716e7293d3%3A7cc3147007296ca04b648f358148d5ea85fd2ab2">this</a> pattern, and glued them on a small base. At the bottom of a base, I put an NFC sticker.</p>
+
+<p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/nfc-bottom.jpeg" alt="image" /></p>
+
+<p>You can use any app on your phone to read and write such NFC stickers. But to make the CTF a little bit harder, I encoded the message hidden in the sticker.</p>
+
+<p>To solve the CTF, follow the steps in the spoiler!</p>
+
+<details>
+<summary><b>Click to show/hide CTF spoilers</b></summary>
+<ul>
+<li>Step 1: install any app or use the internal one to read out the NFC sticker </li>
+
+<li>Step 2: Copy the encoded text message </li>
+
+<li>Step 3: Use a tool such as <a href="https://gchq.github.io/CyberChef/">Cyberchef</a> to automatically decode. The message is Base64 encoded. </li>
+
+<li>Step 4: Read the decrypted message! </li>
+</ul>
+</details>
+
+<p><br />
+I thought this would be a fun gift for anyone interested in Cyberspace. These bugs are more fun compared to software bugs ;)</p>
+
+<p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/bug.jpeg" alt="image" /></p>]]></content><author><name>BruteforceMisa</name></author><category term="Projects" /><category term="hardware" /><summary type="html"><![CDATA[We all complain about bugs in our code, but have you ever seen them in real life? For this project, the digital bug becomes analog! After my internship and master thesis, I wanted to give a small thank-you present to my office mates and supervisors.]]></summary></entry><entry><title type="html">Sinterklaas surprise: Arduino Memory game</title><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Arduino-Gift/" rel="alternate" type="text/html" title="Sinterklaas surprise: Arduino Memory game" /><published>2025-06-16T15:00:00+02:00</published><updated>2025-06-16T15:00:00+02:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Arduino-Gift</id><content type="html" xml:base="http://localhost:4000/hackermouses-guide-through-cyberspace/projects/Arduino-Gift/"><![CDATA[<p>This post is coming around half a year late, but I still want to tell you about a small Arduino project. It is a yearly tradition around Sinterklaas to buy a small gift and wrap it with what we call a “surprise” - which is basically very fancy wrapping paper. All participants put their names on a paper in a big box and draw a new paper. The person you draw (hopefully not yourself) is the person you have to get a gift and a surprise for. Usually, this surprise wrapping is tailored to this particular person.</p>
 
 <p>For Sinterklaas 2024, I had to get presents for my dad. He also likes electronics very much, so I thought it would be cool to create an electronic surprise. I designed a memory game using Arduino, where you have to remember sequences.</p>
 
@@ -12,7 +40,7 @@
 <p>The sequence is a randomly generated bitstream of x bits, and the game starts by just remembering the first bit. Once the user submitted a correct sequence, the next bit is added, and so on. When an error is made, the user has to start over again from the first bit. Once the user has correctly remembered the whole bitstream, a rainbow of ledlights is shown and afterwards the yellow light starts signaling morse code, which matches with the lock on the package. The source code used for this surprise is added here:</p>
 
 <details>
-<summary>Click to show/hide code</summary>
+<summary><b>Click to show/hide code</b></summary>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">const</span> <span class="nb">int</span> <span class="n">blue_ledpin</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
 <span class="n">const</span> <span class="nb">int</span> <span class="n">white_ledpin</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
@@ -249,6 +277,8 @@
 
 </details>
 
+<p><br /></p>
+
 <p>Finally, I had to attach the Arduino to the surprise itself and hide the gifts in there. I decided to stick the Arduino to the “ceiling” of the box, to make cable management a bit easier.</p>
 
 <p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/insides.jpeg" alt="image" /></p>
@@ -396,13 +426,4 @@ AES consists of four main operations: AddRoundKey, SubBytes, ShiftRows &amp; Mix
 <li>Instruction - the order given to the CPU to execute </li>
 <li>Instruction set - the list of available instructions and their encodings in a CPU </li> 
 <li>Clock - the mechanism in the CPU which regulates when the new bit-value </li>
-</ul>]]></content><author><name>BruteforceMisa</name></author><category term="Infographics" /><category term="hardware" /><summary type="html"><![CDATA[The CPU is the computational unit of a computer. It executes a sequence of instructions, which is provided directly or indirectly by the programmer. Instructions are programmed into the CPU and selected at the time when they are needed. The implementation of the instruction set can be different for a different type of CPU. An example of an instruction would be “read the contents of location x in memory”.]]></summary></entry><entry><title type="html">Introduction to Hardware Security</title><link href="http://localhost:4000/hackermouses-guide-through-cyberspace/infographics/Introduction-to-hardwaresecurity/" rel="alternate" type="text/html" title="Introduction to Hardware Security" /><published>2024-11-06T09:20:02+01:00</published><updated>2024-11-06T09:20:02+01:00</updated><id>http://localhost:4000/hackermouses-guide-through-cyberspace/infographics/Introduction-to-hardwaresecurity</id><content type="html" xml:base="http://localhost:4000/hackermouses-guide-through-cyberspace/infographics/Introduction-to-hardwaresecurity/"><![CDATA[<p>The field of <i>hardware security</i> refers to protecting the physical components of a computer. It assumes direct access to the hardware and this field includes anything ranging from managing <i>access control</i> to <i>hardware design</i>. Physical security on your hardware is important, as the hardware can be manipulated by an adversarial. This ranges from plugging a malicious USB into a device to reading information from a monitor screen. It can also be performed more technically by observing power consumption or manipulating input current to inject a fault into the hardware.</p>
-
-<p><img src="http://localhost:4000/hackermouses-guide-through-cyberspace/assets/images/physical.png" alt="image" /></p>
-
-<p><b>Keywords</b></p>
-<ul>
-<li>Access control - a security technique regulating which parties have access to objects in a network or computer</li>
-<li>Hardware design - the physical and logical design of the circuits on a computer</li>
-<li>Hardware security - the vulnerability protection of the physical components on a computer from unauthorised access</li>
-</ul>]]></content><author><name>BruteforceMisa</name></author><category term="Infographics" /><category term="hardware" /><summary type="html"><![CDATA[The field of hardware security refers to protecting the physical components of a computer. It assumes direct access to the hardware and this field includes anything ranging from managing access control to hardware design. Physical security on your hardware is important, as the hardware can be manipulated by an adversarial. This ranges from plugging a malicious USB into a device to reading information from a monitor screen. It can also be performed more technically by observing power consumption or manipulating input current to inject a fault into the hardware.]]></summary></entry></feed>
+</ul>]]></content><author><name>BruteforceMisa</name></author><category term="Infographics" /><category term="hardware" /><summary type="html"><![CDATA[The CPU is the computational unit of a computer. It executes a sequence of instructions, which is provided directly or indirectly by the programmer. Instructions are programmed into the CPU and selected at the time when they are needed. The implementation of the instruction set can be different for a different type of CPU. An example of an instruction would be “read the contents of location x in memory”.]]></summary></entry></feed>

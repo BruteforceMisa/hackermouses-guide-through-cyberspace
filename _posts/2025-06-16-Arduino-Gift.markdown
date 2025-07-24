@@ -21,7 +21,7 @@ The sequence is a randomly generated bitstream of x bits, and the game starts by
 
 
 <details>
-<summary>Click to show/hide code</summary>
+<summary><b>Click to show/hide code</b></summary>
 {% highlight python %}
 
 const int blue_ledpin = 7;
@@ -260,7 +260,7 @@ void loop() {
 {% endhighlight %}
 </details>
 
-
+<br/>
 
 Finally, I had to attach the Arduino to the surprise itself and hide the gifts in there. I decided to stick the Arduino to the "ceiling" of the box, to make cable management a bit easier. 
 
